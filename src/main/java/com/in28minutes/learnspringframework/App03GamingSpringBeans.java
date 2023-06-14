@@ -7,9 +7,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
-class GamingConfiguration {
 
+@Configuration
+public class App03GamingSpringBeans {
     @Bean
     public GamingConsole game() {
         var game = new PacmanGame();
@@ -22,13 +22,10 @@ class GamingConfiguration {
         return gameRunner;
     }
 
-}
-
-public class App03GamingSpringBeans {
     public static void main(String[] args) {
         try (var context =
                      new AnnotationConfigApplicationContext
-                             (GamingConfiguration.class)) {
+                             (App03GamingSpringBeans.class)) {
 
             context.getBean(GamingConsole.class).up();
             context.getBean(GameRunner.class).run();
