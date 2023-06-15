@@ -5,16 +5,13 @@ import com.in28minutes.learnspringframework.game.GamingConsole;
 import com.in28minutes.learnspringframework.game.PacmanGame;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 
 @Configuration
+@ComponentScan("com.in28minutes.learnspringframework.game")
 public class App03GamingSpringBeans {
-    @Bean
-    public GamingConsole game() {
-        var game = new PacmanGame();
-        return game;
-    }
 
     @Bean
     public GameRunner gameRunner(GamingConsole game){
