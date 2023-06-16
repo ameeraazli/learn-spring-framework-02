@@ -11,10 +11,20 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 @Component
 class YourBusinessClass{
-    @Autowired
     Dependency1 dependency;
-    @Autowired
     Dependency2 dependency2;
+
+    @Autowired
+    public void setDependency(Dependency1 dependency) {
+        System.out.println("Setter Injection - setDependency");
+        this.dependency = dependency;
+    }
+
+    @Autowired
+    public void setDependency2(Dependency2 dependency2) {
+        System.out.println("Setter Injection - setDependency2");
+        this.dependency2 = dependency2;
+    }
 
     public String toString() {
         return "Using " + dependency + " and " + dependency2;
